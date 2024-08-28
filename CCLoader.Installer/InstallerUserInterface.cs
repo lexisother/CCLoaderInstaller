@@ -50,13 +50,4 @@ public partial class InstallerUserInterface : Game
         Window.MinSize = new System.Drawing.Size(1280, 720);
         Window.MaxSize = new System.Drawing.Size(1280, 720);
     }
-
-    public override void RegisterForDependencyActivation(IDependencyActivatorRegistry registry)
-    {
-        if (registry.IsRegistered(typeof(InstallerUserInterface)))
-            return;
-
-        base.RegisterForDependencyActivation(registry);
-        registry.Register(typeof(InstallerUserInterface), (InjectDependencyDelegate)((t, d) => ((InstallerUserInterface)t).load()), null);
-    }
 }
