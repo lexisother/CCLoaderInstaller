@@ -47,6 +47,16 @@ public partial class WelcomeScreen : Screen
         ];
     }
 
+    public override void OnEntering(ScreenTransitionEvent e)
+    {
+        this.ScaleTo(0.9f).FadeInFromZero(400.0).ScaleTo(1f, 800.0, Easing.OutQuint);
+    }
+
+    public override void OnSuspending(ScreenTransitionEvent e)
+    {
+        this.ScaleTo(1.1f, 800.0, Easing.OutQuint).FadeOut(400.0);
+    }
+
     public override void RegisterForDependencyActivation(IDependencyActivatorRegistry registry)
     {
         if (registry.IsRegistered(typeof(WelcomeScreen)))
