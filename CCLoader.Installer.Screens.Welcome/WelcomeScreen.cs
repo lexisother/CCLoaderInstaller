@@ -1,4 +1,5 @@
-﻿using osu.Framework.Allocation;
+﻿using CCLoader.Installer.UI;
+using osu.Framework.Allocation;
 using osu.Framework.Graphics;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Sprites;
@@ -31,6 +32,7 @@ public partial class WelcomeScreen : Screen
                         Anchor = Anchor.Centre,
                         Origin = Anchor.Centre,
                         Font = FontUsage.Default.With(size: 40f),
+                        Colour = Colors.Foreground2
                     },
                     new SpriteText
                     {
@@ -38,6 +40,7 @@ public partial class WelcomeScreen : Screen
                         Anchor = Anchor.Centre,
                         Origin = Anchor.Centre,
                         Font = FontUsage.Default.With(size: 24f),
+                        Colour = Colors.Foreground2
                     }
                 ]
             }

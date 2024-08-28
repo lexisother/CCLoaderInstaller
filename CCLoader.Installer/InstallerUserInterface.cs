@@ -1,4 +1,5 @@
 ﻿using CCLoader.Installer.Screens.Welcome;
+using CCLoader.Installer.UI;
 using osu.Framework;
 using osu.Framework.Allocation;
 using osu.Framework.Graphics;
@@ -29,7 +30,7 @@ public partial class InstallerUserInterface : Game
                 new Box
                 {
                     RelativeSizeAxes = Axes.Both,
-                    Colour = Colour4.FromHSL(0.5833333f, 0.1f, 0.1f)
+                    Colour = Colors.Background1
                 },
                 screenStack
             ]
