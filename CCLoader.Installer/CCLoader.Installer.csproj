@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup Label="Project">
+      <TargetFramework>net8.0</TargetFramework>
+      <OutputType>WinExe</OutputType>
+      <AssemblyName>CCLoaderInstaller</AssemblyName>
+      <ApplicationIcon>app.ico</ApplicationIcon>
+      <ApplicationManifest>app.manifest</ApplicationManifest>
+      <Version>0.0.0</Version>
+      <FileVersion>0.0.0</FileVersion>
+    </PropertyGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\CCLoader.Installer.Screens.Welcome\CCLoader.Installer.Screens.Welcome.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="ppy.osu.Framework" Version="2024.809.2"/>
+    </ItemGroup>
+</Project>
