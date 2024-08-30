@@ -10,6 +10,7 @@ using osu.Framework.Screens;
 using osu.Framework.Graphics.Containers;
 using osu.Framework.Graphics.Shapes;
 using osu.Framework.Platform;
+using osuTK;
 
 namespace CCLoader.Installer;
 
@@ -30,7 +31,7 @@ public partial class InstallerUserInterface : Game
         steps.Add(typeof(WelcomeScreen));
         steps.Add(typeof(SelectScreen));
 
-        Child = new SafeAreaContainer
+        Child = new Container
         {
             RelativeSizeAxes = Axes.Both,
             Children =
@@ -46,8 +47,8 @@ public partial class InstallerUserInterface : Game
                     RelativeSizeAxes = Axes.Both,
                     Padding = new MarginPadding
                     {
-                        Top = 100,
-                        Bottom = 50
+                        Top = 90,
+                        Bottom = 40
                     },
                     Children =
                     [
@@ -56,7 +57,7 @@ public partial class InstallerUserInterface : Game
                             Anchor = Anchor.Centre,
                             Origin = Anchor.Centre,
                             RelativeSizeAxes = Axes.Both,
-                            Padding = new MarginPadding { Bottom = 20 },
+                            Padding = new MarginPadding { Bottom = 40 },
                             Child = new GridContainer
                             {
                                 RelativeSizeAxes = Axes.Both,
@@ -99,7 +100,58 @@ public partial class InstallerUserInterface : Game
                             },
                         }
                     ]
-                }
+                },
+
+                new GridContainer
+                {
+                    RelativeSizeAxes = Axes.X,
+                    // AutoSizeAxes = Axes.Y,
+                    Height = 75,
+                    Anchor = Anchor.BottomCentre,
+                    Origin = Anchor.BottomCentre,
+                    // Y = -5,
+                    Margin = new MarginPadding { Bottom = 5 },
+                    ColumnDimensions =
+                    [
+                        new Dimension(),
+                        new Dimension(minSize: 640, maxSize: 800),
+                        new Dimension()
+                    ],
+                    Content =
+                        (Drawable[][])
+                        [
+                            [
+                                Empty(),
+                                new FillFlowContainer
+                                {
+                                    RelativeSizeAxes = Axes.Both,
+                                    Anchor = Anchor.TopLeft,
+                                    Origin = Anchor.TopLeft,
+                                    Direction = FillDirection.Horizontal,
+                                    Margin = new MarginPadding { Left = 95, Top = 15 },
+                                    Spacing = new Vector2(10f, 0f),
+                                    Children =
+                                    [
+                                        new Button
+                                        {
+                                            Text = "Back",
+                                            Action = () =>
+                                            {
+                                                currentStepIndex--;
+                                                screenStack.CurrentScreen.Exit();
+                                            }
+                                        },
+                                        new Button
+                                        {
+                                            Text = "Next",
+                                            Action = showNextStep
+                                        },
+                                    ]
+                                },
+                                Empty()
+                            ]
+                        ]
+                },
             ]
         };
     }
